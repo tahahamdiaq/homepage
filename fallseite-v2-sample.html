@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEQUIFIN — Fallseite v2 (Diskussionsmuster)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap">
+<style>
+  :root {
+    --c-primary: #005781;
+    --c-primary-hover: #003F5E;
+    --c-text-dark: #1E293B;
+    --c-text-body: #475569;
+    --c-text-muted: #64748B;
+    --c-border: #D5E1EA;
+    --c-border-light: #E2E8F0;
+    --c-green: #6DA800;
+    --c-green-dark: #4B7500;
+    --c-amber: #9A5B00;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Roboto, system-ui, sans-serif; color: var(--c-text-dark); background: #fff; }
+  a { color: var(--c-primary); }
+  a:hover { color: var(--c-primary-hover); }
+  input[type=range] { accent-color: var(--c-primary); }
+  input:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--c-primary); outline-offset: 2px; }
+  button { cursor: pointer; }
+  table { border-collapse: collapse; width: 100%; }
+
+  /* Draft-sample banner — not part of the design, just so this can't be mistaken for the live page. */
+  .draft-banner {
+    background: #1E293B; color: #CFE6F2; font-size: 13px; text-align: center;
+    padding: 8px 16px; line-height: 1.4;
+  }
+
+  .page { max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; overflow-x: clip; }
+
+  @media (max-width: 1100px) {
+    .layout-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .offer-aside { position: static !important; margin-top: 0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-banner">Entwurf · Diskussionsmuster mit Beispieldaten (Wirecard ./. EY) — nicht die Live-Seite</div>
+
+<div class="page">
+
+<header style="position: sticky; top: 0; z-index: 30; height: 72px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 50px; background: #fff; border-bottom: 1px solid #E2E8F0">
+  <div style="display: flex; align-items: center; gap: 44px">
+    <span style="font-size: 22px; font-weight: 700; letter-spacing: .06em; color: #005781">AEQUIFIN</span>
+    <nav aria-label="Hauptnavigation" style="display: flex; gap: 28px">
+      <a href="#" style="text-decoration: none; font-size: 15px; font-weight: 600; color: #005781">Aktuelle Fälle</a>
+      <a href="#" style="text-decoration: none; font-size: 15px; font-weight: 400; color: #1E293B">Prozesse finanzieren</a>
+      <a href="#" style="text-decoration: none; font-size: 15px; font-weight: 400; color: #1E293B">Prozessfinanzierung erhalten</a>
+      <a href="#" style="text-decoration: none; font-size: 15px; font-weight: 400; color: #1E293B">Gutachten</a>
+      <a href="#" style="text-decoration: none; font-size: 15px; font-weight: 400; color: #1E293B">News</a>
+    </nav>
+  </div>
+  <div style="display: flex; align-items: center; gap: 20px">
+    <a href="#" style="font-size: 15px; font-weight: 600; text-decoration: none">Anmelden</a>
+    <a href="#" style="padding: 10px 20px; border: 2px solid #005781; border-radius: 20px; font-size: 15px; font-weight: 500; text-decoration: none">Kostenlos registrieren</a>
+  </div>
+</header>
+
+<section aria-labelledby="case-title" style="position: relative; height: 520px; flex-shrink: 0; overflow: hidden">
+  <img src="assets/case-hero.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,22,34,.95) 0%, rgba(0,36,56,.86) 50%, rgba(0,40,62,.45) 100%)"></div>
+  <div style="position: relative; height: 100%; box-sizing: border-box; max-width: 1340px; margin: 0 auto; padding: 30px 50px 44px; display: flex; flex-direction: column">
+    <p style="margin: 0; font-size: 13px; color: #CFE6F2"><a href="#" style="color: #CFE6F2; text-decoration: none">Aktuelle Fälle</a> / Kapitalmarktrecht / Fall #23</p>
+    <div style="margin-top: auto; max-width: 800px">
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.95); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #4B7500"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #6DA800; box-shadow: 0 0 0 4px rgba(109,168,0,.18); flex-shrink: 0"></span>Live · noch 14 Tage</span>
+        <span style="display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); font-size: 12.5px; font-weight: 600; color: #fff">Wirtschaftsrecht · Kapitalmarktrecht</span>
+      </div>
+      <h1 id="case-title" style="margin: 20px 0 0; font-size: 44px; line-height: 1.14; font-weight: 300; letter-spacing: -.02em; color: #fff">Wirecard-Anleger gegen EY: <strong style="font-weight: 700">Haftung der Abschlussprüfer</strong></h1>
+      <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.5; color: #CFE6F2">Musterfeststellungsklage gegen die Ernst &amp; Young GmbH Wirtschaftsprüfungsgesellschaft (Wirecard AG)</p>
+    </div>
+    <dl style="margin: 32px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 48px; max-width: 800px; flex-wrap: wrap">
+      <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Streitwert</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">75 Mio. €</dd></div>
+      <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Gericht</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">BayObLG München</dd></div>
+      <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Aktenzeichen</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">KapMuG 101 Kap 1/22</dd></div>
+      <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Im Register</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">15.000+ Anleger</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="layout-grid" style="max-width: 1340px; width: 100%; box-sizing: border-box; margin: 0 auto; padding: 0 50px; display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 72px">
+<div style="display: flex; flex-direction: column">
+
+<nav aria-label="Abschnitte" style="position: sticky; top: 72px; z-index: 20; height: 60px; display: flex; gap: 26px; align-items: stretch; background: rgba(255,255,255,.97); border-bottom: 1px solid #E2E8F0; overflow-x: auto">
+  <a href="#ueberblick" aria-current="true" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 600; color: #005781; border-bottom: 3px solid #005781; margin-bottom: -1px; white-space: nowrap">Überblick</a>
+  <a href="#parteien" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Parteien</a>
+  <a href="#quotenbalancing" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Quotenbalancing</a>
+  <a href="#ablauf" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Ablauf &amp; Kosten</a>
+  <a href="#dokumente" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Dokumente<span style="padding: 1px 7px; border-radius: 999px; background: #EEF4F8; color: #475569; font-size: 12px; font-weight: 700">4</span></a>
+  <a href="#fragen" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Fragen<span style="padding: 1px 7px; border-radius: 999px; background: #EEF4F8; color: #475569; font-size: 12px; font-weight: 700">3</span></a>
+  <a href="#neuigkeiten" style="display: flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14.5px; font-weight: 500; color: #475569; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap">Neuigkeiten<span style="padding: 1px 7px; border-radius: 999px; background: #EEF4F8; color: #475569; font-size: 12px; font-weight: 700">2</span></a>
+</nav>
+
+<div style="display: flex; flex-direction: column; gap: 88px; padding: 56px 0 104px">
+
+<section id="ueberblick" aria-labelledby="h-ov" style="display: flex; flex-direction: column; gap: 28px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Überblick</p><h2 id="h-ov" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300">Worum es in diesem Fall geht</h2></div>
+  <div>
+    <p style="margin: 0; font-size: 20px; line-height: 1.6; font-weight: 300; color: #1E293B">Geschädigte Wirecard-Anleger verlangen Schadensersatz von der Wirtschaftsprüfungsgesellschaft EY. Der Vorwurf: EY hat die Konzernabschlüsse 2015 bis 2018 uneingeschränkt testiert, obwohl angebliche Treuhandguthaben von <strong style="font-weight: 600">1,9 Mrd. €</strong> nicht existierten.</p>
+    <div id="facts-body" hidden style="margin-top: 16px; display: flex; flex-direction: column; gap: 14px; font-size: 16px; line-height: 1.7; color: #475569">
+      <p style="margin: 0">Die Klägerseite wirft den Prüfern vor, über Jahre hinweg grob fahrlässig bzw. unter bewusster Missachtung elementarer Prüfungspflichten uneingeschränkte Bestätigungsvermerke erteilt zu haben. Die Guthaben auf philippinischen Banken existierten tatsächlich nicht.</p>
+      <p style="margin: 0">Der BGH hat mit Beschluss vom 07.03.2023 bestätigt, dass eine deliktische Haftung der Prüfer nach § 826 BGB bzw. § 823 Abs. 2 BGB in Verbindung mit Schutzgesetzen in Betracht kommt. Das Musterverfahren trifft bindende Feststellungen für tausende geschädigte Anleger.</p>
+    </div>
+    <button type="button" id="facts-toggle" aria-expanded="false" aria-controls="facts-body" style="margin-top: 8px; min-height: 44px; padding: 0; border: 0; background: none; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 15px; font-weight: 600; color: #005781">
+      <span id="facts-label">Ganzen Sachverhalt lesen</span>
+      <svg id="facts-chevron" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; transition: transform .15s ease"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+  </div>
+  <dl style="margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 22px 0; margin-left: -24px; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0">
+    <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Streitwert</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">75 Mio. €</dd></div>
+    <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Zielbetrag</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">500.000 €</dd></div>
+    <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Höchstquote</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">35 %</dd></div>
+    <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Erwartete Dauer</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">2,5–3 J.</dd></div>
+  </dl>
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+    <div style="padding-top: 18px; border-top: 3px solid #6DA800"><h3 style="margin: 0 0 14px; font-size: 17px; font-weight: 600">Was für den Fall spricht</h3><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B7500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg><span><strong>BGH-Beschluss vom 07.03.2023:</strong> Eine Haftung der Prüfer nach § 826 BGB kommt in Betracht.</span></li>
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B7500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg><span><strong>Musterverfahren:</strong> Die Feststellungen gelten für über 15.000 angemeldete Anleger.</span></li>
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B7500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg><span><strong>Unabhängiges Rechtsgutachten</strong> zur Prüferhaftung liegt vor.</span></li>
+    </ul></div>
+    <div style="padding-top: 18px; border-top: 3px solid #E0A100"><h3 style="margin: 0 0 14px; font-size: 17px; font-weight: 600">Was Sie wissen sollten</h3><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5B00" stroke-width="2.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v5.5M12 7.6v.1"></path></svg><span><strong>Dauer:</strong> laut Kanzlei 2,5 bis 3 Jahre bis zur rechtskräftigen Entscheidung.</span></li>
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5B00" stroke-width="2.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v5.5M12 7.6v.1"></path></svg><span><strong>Ausgang offen:</strong> Verliert die Klägerseite, ist Ihr Beitrag verloren.</span></li>
+      <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5B00" stroke-width="2.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 2px"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v5.5M12 7.6v.1"></path></svg><span><strong>Durchsetzung:</strong> EY verfügt laut Kanzlei über Berufshaftpflicht-Deckung.</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="parteien" aria-labelledby="h-pa" style="display: flex; flex-direction: column; gap: 24px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Parteien</p><h2 id="h-pa" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Wer gegen <strong style="font-weight: 700; color: #005781">wen klagt.</strong></h2></div>
+  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: stretch">
+    <div style="padding: 24px; border-radius: 18px; background: #005781; color: #fff">
+      <p style="margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #CFE6F2">Klägerseite · Sie unterstützen</p>
+      <p style="margin: 8px 0 0; font-size: 19px; line-height: 1.35; font-weight: 500">Interessengemeinschaft geschädigter Kapitalanleger (Wirecard AG) e.V.</p>
+      <p style="margin: 8px 0 0; font-size: 14px; color: #CFE6F2">Vertreten durch Schirp &amp; Partner mbB, Berlin</p>
+    </div>
+    <div aria-hidden="true" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px"><span style="flex-grow: 1; width: 1px; background: #E2E8F0"></span><span style="width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid #D5E1EA; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #005781">VS</span><span style="flex-grow: 1; width: 1px; background: #E2E8F0"></span></div>
+    <div style="padding: 24px; border-radius: 18px; background: #F8FAFC; border: 1px solid #E2E8F0">
+      <p style="margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #64748B">Beklagte Partei</p>
+      <p style="margin: 8px 0 0; font-size: 19px; line-height: 1.35; font-weight: 500">Ernst &amp; Young GmbH Wirtschaftsprüfungsgesellschaft</p>
+      <p style="margin: 8px 0 0; font-size: 14px; color: #64748B">Sitz: Stuttgart / Eschborn</p>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 32px; padding: 20px 0; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; flex-wrap: wrap">
+    <div style="display: flex; align-items: center; gap: 14px; flex-grow: 1">
+      <div aria-hidden="true" style="display: flex"><span style="width: 46px; height: 46px; border-radius: 50%; background: #005781; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 2px solid #fff">WS</span><span style="width: 46px; height: 46px; margin-left: -12px; border-radius: 50%; background: #3B7EA1; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 2px solid #fff">ML</span></div>
+      <div><p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #64748B">Prozessvertretung</p><p style="margin: 3px 0 0; font-size: 15.5px; font-weight: 600">Dr. Wolfgang Schirp, Marc Liebscher, LL.M.</p><p style="margin: 2px 0 0; font-size: 14px; color: #64748B">Schirp &amp; Partner Rechtsanwälte mbB, Berlin</p></div>
+    </div>
+    <dl style="margin: 0; display: flex; gap: 28px">
+      <div><dt style="font-size: 12.5px; color: #64748B">Gericht</dt><dd style="margin: 3px 0 0; font-size: 15px; font-weight: 500">BayObLG München</dd></div>
+      <div><dt style="font-size: 12.5px; color: #64748B">Aktenzeichen</dt><dd style="margin: 3px 0 0; font-size: 15px; font-weight: 500">KapMuG 101 Kap 1/22</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="quotenbalancing" aria-labelledby="h-qb" style="display: flex; flex-direction: column; gap: 24px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Quotenbalancing</p><h2 id="h-qb" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">So entsteht <strong style="font-weight: 700; color: #005781">Ihre Quote.</strong></h2><p style="margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #475569; max-width: 640px">Sponsoren bieten mit ihrer Wunsch-Quote. Die niedrigsten Angebote erhalten den Zuschlag. Weil am Ende alle dieselbe Quote bekommen, erhalten Sie mindestens Ihre Wunsch-Quote.</p></div>
+  <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+    <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">1</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Sie nennen Betrag und Wunsch-Quote</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">ab 100 €, höchstens 35 %</p></div></li>
+    <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">2</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Die niedrigsten Quoten erhalten den Zuschlag</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">bis 500.000 € erreicht sind</p></div></li>
+    <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">3</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Alle erhalten dieselbe Quote</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">die des letzten benötigten Euro</p></div></li>
+  </ol>
+  <div style="padding: 24px; border-radius: 20px; background: #F8FAFC; border: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+      <div><p id="qb-total-line" style="margin: 0; font-size: 13px; color: #64748B">655.000 € angeboten · 131 % des Ziels</p><p style="margin: 4px 0 0; font-size: 16px; font-weight: 600">Ihr Angebot: <span id="qb-rank" style="color: #005781">Rang 5 von 9 nach Quote</span> · <span id="qb-status-title">Im Zielbereich</span></p></div>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #475569">
+        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #005781"></span>Zuschlag</li>
+        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #B8C6D3"></span>Verdrängt</li>
+        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #6DA800; box-shadow: 0 0 0 2px #1E293B inset"></span>Ihr Angebot</li>
+      </ul>
+    </div>
+    <div style="display: flex; gap: 8px; padding-top: 24px">
+      <div aria-hidden="true" style="width: 34px; height: 260px; flex-shrink: 0; position: relative; font-size: 11.5px; color: #64748B"><span style="position: absolute; top: -7px; right: 0">35 %</span><span style="position: absolute; top: calc(50% - 7px); right: 0">17,5 %</span><span style="position: absolute; bottom: -7px; right: 0">0 %</span></div>
+      <div id="qb-chart" role="img" aria-label="Angebote nach Quote sortiert. Der Zielbetrag wird bei 14,50 % erreicht." style="flex-grow: 1; position: relative; height: 260px; border-left: 1px solid #CBD5E1; border-bottom: 1px solid #CBD5E1">
+        <!-- bars rendered by renderChart() -->
+      </div>
+    </div>
+    <p style="margin: 0 0 0 42px; display: flex; justify-content: space-between; font-size: 12.5px; color: #64748B"><span>niedrigste Quote</span><span>höchste Quote →</span></p>
+    <button type="button" id="table-toggle" aria-expanded="false" aria-controls="qb-table-wrap" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: none; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 15px; font-weight: 600; color: #005781">
+      <span id="table-label">Alle Angebote als Tabelle</span>
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+    <div id="qb-table-wrap" hidden style="border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #E2E8F0">
+      <table aria-label="Alle Angebote">
+        <thead>
+          <tr style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748B">
+            <th scope="col" style="text-align: left; padding: 10px 14px">Quote</th>
+            <th scope="col" style="text-align: left; padding: 10px 14px">Betrag</th>
+            <th scope="col" style="text-align: left; padding: 10px 14px">Datum</th>
+            <th scope="col" style="text-align: left; padding: 10px 14px">Status</th>
+          </tr>
+        </thead>
+        <tbody id="qb-table-body" style="font-size: 14px"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf" aria-labelledby="h-pl" style="display: flex; flex-direction: column; gap: 28px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Ablauf &amp; Kosten</p><h2 id="h-pl" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Zeitplan und <strong style="font-weight: 700; color: #005781">Mittelverwendung.</strong></h2></div>
+  <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Fragen-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">01.–15.08.2026</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Antwort-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">16.–31.08.2026</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #6DA800; box-shadow: 0 0 0 5px rgba(109,168,0,.18); display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #6DA800"></span></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #005781">Quotenbalancing</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">bis 30.10.2026</p><span style="display: inline-flex; margin-top: 6px; padding: 2px 9px; border-radius: 999px; background: #EEF6DF; color: #3F6300; font-size: 12px; font-weight: 700">Noch 14 Tage</span></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Musterverfahren BayObLG</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12–18 Monate</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Revision BGH</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12 Monate</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Auszahlung</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">nach Urteil oder Vergleich</p></div></li>
+  </ol>
+  <p style="margin: -8px 0 0; font-size: 14.5px; color: #475569">Erwartete Gesamtdauer laut Kanzlei: <strong style="color: #1E293B">2,5 bis 3 Jahre</strong></p>
+  <div>
+    <div style="display: flex; justify-content: space-between; align-items: baseline"><h3 style="margin: 0; font-size: 17px; font-weight: 600">Wofür die 500.000 € verwendet werden</h3></div>
+    <div role="img" aria-label="36 % erste Instanz, 34 % BGH, 30 % Durchsetzung" style="margin: 14px 0 4px; height: 12px; display: flex; gap: 3px; border-radius: 999px; overflow: hidden"><span style="width: 36%; background: #005781"></span><span style="width: 34%; background: #3B7EA1"></span><span style="width: 30%; background: #8FB8D0"></span></div>
+    <ul style="margin: 10px 0 0; padding: 0; list-style: none; border-bottom: 1px solid #E2E8F0">
+      <li style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E2E8F0"><span aria-hidden="true" style="width: 12px; height: 12px; margin-top: 5px; flex-shrink: 0; border-radius: 3px; background: #005781"></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">1. Instanz · Musterverfahren BayObLG</p><p style="margin: 3px 0 0; font-size: 14px; line-height: 1.45; color: #64748B">Gerichtskosten, Anwaltshonorare, KPMG-Sondergutachten</p></div><p style="margin: 0; flex-shrink: 0; text-align: right"><span style="display: block; font-size: 15.5px; font-weight: 600">180.000 €</span><span style="font-size: 13px; color: #64748B">36 %</span></p></li>
+      <li style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E2E8F0"><span aria-hidden="true" style="width: 12px; height: 12px; margin-top: 5px; flex-shrink: 0; border-radius: 3px; background: #3B7EA1"></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">2. Instanz · Revision BGH</p><p style="margin: 3px 0 0; font-size: 14px; line-height: 1.45; color: #64748B">BGH-Anwaltskosten und Vertretung vor dem Senat</p></div><p style="margin: 0; flex-shrink: 0; text-align: right"><span style="display: block; font-size: 15.5px; font-weight: 600">170.000 €</span><span style="font-size: 13px; color: #64748B">34 %</span></p></li>
+      <li style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E2E8F0"><span aria-hidden="true" style="width: 12px; height: 12px; margin-top: 5px; flex-shrink: 0; border-radius: 3px; background: #8FB8D0"></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">Durchsetzung · Vollstreckung &amp; Vergleich</p><p style="margin: 3px 0 0; font-size: 14px; line-height: 1.45; color: #64748B">Schadensbezifferung und Durchsetzung der Auszahlungen</p></div><p style="margin: 0; flex-shrink: 0; text-align: right"><span style="display: block; font-size: 15.5px; font-weight: 600">150.000 €</span><span style="font-size: 13px; color: #64748B">30 %</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="dokumente" aria-labelledby="h-do" style="display: flex; flex-direction: column; gap: 24px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Dokumente &amp; Gutachten</p><h2 id="h-do" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Selbst <strong style="font-weight: 700; color: #005781">prüfen.</strong></h2></div>
+  <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: start">
+    <div>
+      <p style="margin: 0 0 10px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #475569"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"></path></svg>Datenraum · verschlüsselt, Zwei-Faktor-Anmeldung</p>
+      <ul style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #E2E8F0">
+        <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #E2E8F0; flex-wrap: wrap"><span aria-hidden="true" style="color: #005781; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">Fall-Exposé</p><p style="margin: 2px 0 0; font-size: 13px; color: #64748B">PDF · öffentlich</p></div><a href="#" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 14px; font-weight: 600; text-decoration: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>Laden</a></li>
+        <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #E2E8F0; flex-wrap: wrap"><span aria-hidden="true" style="color: #005781; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">Klageschrift Musterverfahren BayObLG</p><p style="margin: 2px 0 0; font-size: 13px; color: #64748B">PDF · 4,8 MB</p></div><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #64748B"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Nach Registrierung</span></li>
+        <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #E2E8F0; flex-wrap: wrap"><span aria-hidden="true" style="color: #005781; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">KPMG-Sondergutachten Treuhandkonten</p><p style="margin: 2px 0 0; font-size: 13px; color: #64748B">PDF · 12,4 MB</p></div><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #64748B"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Nach Registrierung</span></li>
+        <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #E2E8F0; flex-wrap: wrap"><span aria-hidden="true" style="color: #005781; display: flex"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></span><div style="flex-grow: 1; min-width: 0"><p style="margin: 0; font-size: 15px; font-weight: 600">BGH-Leitentscheidung Prüferhaftung 2023</p><p style="margin: 2px 0 0; font-size: 13px; color: #64748B">PDF · 1,2 MB</p></div><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #64748B"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>Nach Registrierung</span></li>
+      </ul>
+      <a href="#" style="margin-top: 16px; height: 48px; border-radius: 20px; border: 2px solid #005781; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; text-decoration: none">Kostenlos registrieren &amp; Datenraum öffnen</a>
+      <p style="margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px"><a href="#">AGB</a><a href="#">Datenschutz</a><a href="#">Vergütungsvereinbarung</a></p>
+    </div>
+    <div style="padding: 24px; border-radius: 18px; background: #F8FAFC; display: flex; flex-direction: column; gap: 10px">
+      <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #005781">Unabhängiges Rechtsgutachten</p>
+      <p style="margin: 0; font-size: 17px; line-height: 1.45; font-weight: 500">Prüferhaftung Dritter bei vorsätzlicher Testatserteilung ohne ausreichende Prüfungshandlungen (§ 826 BGB)</p>
+      <p style="margin: 0; font-size: 14px; color: #64748B">Prof. Dr. jur. Christian Schmidt · Institut für Europäisches Wirtschaftsrecht · 14.07.2026</p>
+      <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #475569">Würdigt die BGH-Rechtsprechung und ordnet die Pflichtverletzungen der Abschlussprüfer als sittenwidrig im Sinne von § 826 BGB ein.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center"><a href="#" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; font-weight: 600; text-decoration: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>Zusammenfassung</a><a href="#" style="font-size: 14.5px; color: #475569">Vollgutachten · 450 € inkl. MwSt.</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="fragen" aria-labelledby="h-qa" style="display: flex; flex-direction: column; gap: 20px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Fragen &amp; Antworten</p><h2 id="h-qa" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Die Kanzlei <strong style="font-weight: 700; color: #005781">antwortet.</strong></h2><p style="margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #475569; max-width: 640px">Antworten auf Fragen von Sponsoren. Die Fragen-Phase endete am 15.08.2026.</p></div>
+  <ul id="faq-list" style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #E2E8F0"></ul>
+</section>
+
+<section id="neuigkeiten" aria-labelledby="h-ne" style="display: flex; flex-direction: column; gap: 20px">
+  <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Neuigkeiten</p><h2 id="h-ne" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Stand des <strong style="font-weight: 700; color: #005781">Verfahrens.</strong></h2></div>
+  <ul style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #E2E8F0">
+    <li style="display: grid; grid-template-columns: 120px 1fr; gap: 6px 24px; padding: 20px 0; border-top: 1px solid #E2E8F0"><p style="margin: 0; font-size: 13.5px; font-weight: 600; color: #64748B">24.09.2026</p><div><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 600">BayObLG bestimmt Termine zur mündlichen Verhandlung</h3><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #475569">Zeugen und Sachverständige der BaFin sowie ehemalige Partner von EY sind geladen.</p><a href="#" style="display: inline-flex; min-height: 40px; align-items: center; font-size: 14.5px; font-weight: 600; text-decoration: none">Weiterlesen →</a></div></li>
+    <li style="display: grid; grid-template-columns: 120px 1fr; gap: 6px 24px; padding: 20px 0; border-top: 1px solid #E2E8F0"><p style="margin: 0; font-size: 13.5px; font-weight: 600; color: #64748B">12.09.2026</p><div><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 600">Verjährung für über 15.000 Anleger gehemmt</h3><p style="margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: #475569">Mit dem Eröffnungsbeschluss im Klageregister ist die Verjährung aller angemeldeten Ansprüche gehemmt.</p><a href="#" style="display: inline-flex; min-height: 40px; align-items: center; font-size: 14.5px; font-weight: 600; text-decoration: none">Weiterlesen →</a></div></li>
+  </ul>
+</section>
+
+</div>
+</div>
+
+<aside class="offer-aside" aria-labelledby="rail-t" style="margin-top: -380px; position: relative; z-index: 25">
+<div style="position: sticky; top: 92px; display: flex; flex-direction: column; gap: 12px">
+<div style="padding: 24px; border-radius: 24px; background: #fff; border: 1px solid #D5E1EA; box-shadow: 0 24px 60px rgba(0,20,32,.18); display: flex; flex-direction: column; gap: 16px">
+  <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap">
+    <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #4B7500"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #6DA800; box-shadow: 0 0 0 4px rgba(109,168,0,.18); flex-shrink: 0"></span>Live · Quotenbalancing</span>
+    <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: #1E293B"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Noch 14 T 08 Std</span>
+  </div>
+  <div>
+    <p style="margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 10px"><span style="font-size: 32px; line-height: 1; font-weight: 300; letter-spacing: -.02em; color: #005781">650.000 €</span><span style="font-size: 14px; color: #475569">angeboten · Ziel 500.000 €</span></p>
+    <div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-valuetext="130 % des Zielbetrags angeboten" style="margin-top: 12px; display: flex; gap: 2px; height: 6px; border-radius: 999px; background: #D5E1EA; overflow: hidden"><span style="width: 77%; background: #005781"></span><span style="flex-grow: 1; background: #66D0FF"></span></div>
+    <p style="margin: 8px 0 0; display: flex; justify-content: space-between; font-size: 13px; color: #475569"><span><strong style="color: #1E293B">130 %</strong> · überzeichnet</span><span>8 Angebote</span></p>
+  </div>
+  <div style="height: 1px; background: #E2E8F0"></div>
+  <h2 id="rail-t" style="margin: 0; font-size: 18px; font-weight: 600">Ihr Angebot</h2>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <label for="amtd" style="font-size: 13.5px; font-weight: 700">Betrag</label>
+      <div style="display: flex; align-items: center; gap: 8px; height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #CBD5E1; background: #fff">
+        <input id="amtd" type="text" inputmode="numeric" autocomplete="off" value="5.000" style="flex-grow: 1; min-width: 0; border: 0; outline: none; background: transparent; font-family: inherit; font-size: 19px; font-weight: 500; color: #1E293B">
+        <span style="font-size: 17px; color: #64748B">€</span>
+      </div>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap">
+        <button type="button" data-amount="1000" style="height: 34px; padding: 0 12px; border-radius: 999px; font-family: inherit; font-size: 13.5px; font-weight: 600; border: 1.5px solid #D5E1EA; background: #fff; color: #1E293B">1.000 €</button>
+        <button type="button" data-amount="5000" aria-pressed="true" style="height: 34px; padding: 0 12px; border-radius: 999px; font-family: inherit; font-size: 13.5px; font-weight: 600; border: 1.5px solid #005781; background: #EEF4F8; color: #005781">5.000 €</button>
+        <button type="button" data-amount="25000" style="height: 34px; padding: 0 12px; border-radius: 999px; font-family: inherit; font-size: 13.5px; font-weight: 600; border: 1.5px solid #D5E1EA; background: #fff; color: #1E293B">25.000 €</button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><label for="qd" style="font-size: 13.5px; font-weight: 700">Wunsch-Quote <span style="font-weight: 400; color: #64748B">max. 35 %</span></label><span id="quota-readout" style="font-size: 22px; font-weight: 400; color: #005781">13,00 %</span></div>
+      <input id="qd" type="range" min="1" max="35" step="0.5" value="13" aria-valuetext="13,00 %" style="width: 100%; height: 24px; margin: 0">
+      <div aria-hidden="true" style="position: relative; height: 26px; margin: 0 8px"><span style="position: absolute; top: 0; left: 39.71%; width: 2px; height: 10px; background: #1E293B"></span><span style="position: absolute; top: 10px; left: 39.71%; transform: translateX(-50%); font-size: 11.5px; font-weight: 600; color: #1E293B; white-space: nowrap">heute 14,50 %</span></div>
+    </div>
+    <div id="status-box" role="status" style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: #EEF6DF; color: #3F6300">
+      <svg id="status-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3F6300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg>
+      <p id="status-text" style="margin: 0; font-size: 14px; line-height: 1.45"><strong>Im Zielbereich.</strong> Ihr Angebot würde heute voll berücksichtigt.</p>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-top: 14px; border-top: 1px solid #E2E8F0">
+      <div><p style="margin: 0; font-size: 13.5px; color: #475569">Bei vollem Erfolg*</p><p id="pay-full" style="margin: 2px 0 0; font-size: 28px; line-height: 1.1; font-weight: 400; color: #005781">108.750 €</p></div>
+      <div style="text-align: right"><p id="pay-mult" style="margin: 0; font-size: 20px; font-weight: 500; color: #1E293B">21,7×</p><p style="margin: 2px 0 0; font-size: 12.5px; color: #64748B">Ihres Beitrags</p></div>
+    </div>
+    <p style="margin: -6px 0 0; font-size: 13px; line-height: 1.5; color: #64748B">Vergleich über 40 %: <span id="pay-settle">43.500 €</span> · Kein Erfolg: Beitrag verloren</p>
+  </div>
+  <button type="button" id="open-review" style="height: 54px; border: 0; border-radius: 20px; background: #005781; color: #fff; font-family: inherit; font-size: 16.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px">Angebot prüfen<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -6px; flex-wrap: wrap; gap: 8px">
+    <button type="button" id="watch-toggle" aria-pressed="false" style="min-height: 44px; padding: 0; border: 0; background: none; display: inline-flex; align-items: center; gap: 8px; font-family: inherit; font-size: 14.5px; font-weight: 600; color: #005781">
+      <svg id="watch-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"></path></svg>
+      <span id="watch-label">Fall beobachten</span>
+    </button>
+    <a href="#" style="min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 600; text-decoration: none"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>Exposé (PDF)</a>
+  </div>
+  <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #64748B">* Bei Zuschlag und Erfolg über den vollen Streitwert von 75 Mio. €, berechnet mit der Quote für alle. Keine Garantie, keine Nachschusspflicht.</p>
+</div>
+</div>
+</aside>
+
+</div>
+<div style="flex-grow: 1"></div>
+<footer style="background: #003F5E; color: #CFE6F2; padding: 48px 50px">
+  <div style="max-width: 1340px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap">
+    <span style="font-size: 20px; font-weight: 700; letter-spacing: .06em; color: #fff">AEQUIFIN</span>
+    <nav aria-label="Fußzeile" style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px"><a href="#" style="color: #CFE6F2">So funktioniert's</a><a href="#" style="color: #CFE6F2">FAQ</a><a href="#" style="color: #CFE6F2">Kontakt</a><a href="#" style="color: #CFE6F2">Impressum</a><a href="#" style="color: #CFE6F2">Datenschutz</a><a href="#" style="color: #CFE6F2">AGB</a></nav>
+    <span style="font-size: 13px">© 2026 AEQUIFIN GmbH &amp; Co. KGaA</span>
+  </div>
+</footer>
+</div>
+
+<div id="review-modal" hidden style="position: fixed; inset: 0; z-index: 50; background: rgba(15,23,42,.55); display: flex; align-items: center; justify-content: center; padding: 20px">
+  <div role="dialog" aria-modal="true" aria-labelledby="rv-t" style="width: 100%; max-width: 540px; max-height: 92vh; overflow: auto; box-sizing: border-box; padding: 28px; border-radius: 24px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.3); display: flex; flex-direction: column; gap: 18px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><div><p style="margin: 0; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #005781">Schritt 1 von 2</p><h2 id="rv-t" style="margin: 6px 0 0; font-size: 26px; font-weight: 300">Angebot prüfen</h2></div><button type="button" id="close-review" aria-label="Schließen" style="width: 44px; height: 44px; border: 0; border-radius: 50%; background: #F1F5F9; color: #475569; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+    <dl style="margin: 0; padding: 16px 18px; border-radius: 16px; background: #F8FAFC; display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 15px">
+      <dt style="color: #64748B">Fall</dt><dd style="margin: 0; text-align: right; font-weight: 500">Wirecard ./. EY · #23</dd>
+      <dt style="color: #64748B">Betrag</dt><dd id="rv-amount" style="margin: 0; text-align: right; font-weight: 600">5.000 €</dd>
+      <dt style="color: #64748B">Wunsch-Quote</dt><dd id="rv-quota" style="margin: 0; text-align: right; font-weight: 600">13,00 %</dd>
+      <dt style="color: #64748B">Stand heute</dt><dd id="rv-status" style="margin: 0; text-align: right; font-weight: 600">Im Zielbereich</dd>
+      <dt style="color: #64748B">Bei vollem Erfolg*</dt><dd id="rv-payfull" style="margin: 0; text-align: right; font-weight: 600; color: #005781">108.750 €</dd>
+    </dl>
+    <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #475569">Ihr Angebot ist verbindlich. Ob es berücksichtigt wird und mit welcher Quote, steht am Ende des Quotenbalancing am <strong>30.10.2026</strong> fest.</p>
+    <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: #1E293B"><input type="checkbox" id="c1" style="width: 20px; height: 20px; margin: 2px 0 0; flex-shrink: 0; accent-color: #005781"><span>Ich akzeptiere die <a href="#">Vergütungsvereinbarung</a> und die <a href="#">AGB</a>.</span></label>
+    <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.5; color: #1E293B"><input type="checkbox" id="c2" style="width: 20px; height: 20px; margin: 2px 0 0; flex-shrink: 0; accent-color: #005781"><span>Mir ist bewusst: Sponsoring ist keine Kapitalanlage. Verliert die Klägerseite, ist mein Beitrag verloren. <a href="#">Risikohinweise</a></span></label>
+    <button type="button" id="send-offer" disabled style="height: 52px; border: 0; border-radius: 20px; font-family: inherit; font-size: 16px; font-weight: 600; color: #fff; background: #9FB4C4">Angebot verbindlich abgeben</button>
+    <button type="button" id="change-offer" style="min-height: 44px; margin-top: -8px; border: 0; background: none; font-family: inherit; font-size: 15px; font-weight: 600; color: #475569">Angebot ändern</button>
+  </div>
+</div>
+
+<div id="sent-modal" hidden style="position: fixed; inset: 0; z-index: 50; background: rgba(15,23,42,.55); display: flex; align-items: center; justify-content: center; padding: 20px">
+  <div role="dialog" aria-modal="true" aria-labelledby="ok-t" style="width: 100%; max-width: 480px; box-sizing: border-box; padding: 32px 28px; border-radius: 24px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.3); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px">
+    <span aria-hidden="true" style="width: 60px; height: 60px; border-radius: 50%; background: #6DA800; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span>
+    <h2 id="ok-t" style="margin: 6px 0 0; font-size: 26px; font-weight: 300">Ihr Angebot ist eingegangen</h2>
+    <p id="sent-text" style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #475569">5.000 € zu einer Wunsch-Quote von 13,00 %. Sie erhalten eine Bestätigung per E-Mail und sehen im Sponsor-Portal bis zum 30.10.2026, ob Ihr Angebot im Zielbereich liegt.</p>
+    <a href="#" style="width: 100%; height: 50px; margin-top: 6px; border-radius: 20px; background: #005781; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; text-decoration: none">Zum Sponsor-Portal</a>
+    <button type="button" id="close-sent" style="min-height: 44px; border: 0; background: none; font-family: inherit; font-size: 15px; font-weight: 600; color: #005781">Zurück zum Fall</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- Sample data (hardcoded for discussion — matches the design's own placeholder bids) ----
+  var BIDS = [
+    { q: 10.0, a: 50000, d: '02.09.' },
+    { q: 11.5, a: 100000, d: '05.09.' },
+    { q: 12.0, a: 75000, d: '11.09.' },
+    { q: 12.5, a: 100000, d: '14.09.' },
+    { q: 13.5, a: 100000, d: '18.09.' },
+    { q: 14.5, a: 75000, d: '24.09.' },
+    { q: 18.0, a: 50000, d: '01.09.' },
+    { q: 22.0, a: 100000, d: '01.09.' }
+  ];
+  var TARGET = 500000, CLAIM = 75000000, CAP = 35, MIN = 100, SETTLE = 0.4, BASE = 14.5;
+
+  function eur(n) { return Math.round(n).toLocaleString('de-DE') + ' €'; }
+  function pct(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %'; }
+  function mult(n) { return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '×'; }
+
+  function simulate(amount, quota) {
+    var you = amount >= MIN ? [{ q: quota, a: amount, d: 'neu', you: true }] : [];
+    var all = BIDS.map(function (b) { return Object.assign({}, b, { you: false }); }).concat(you)
+      .sort(function (x, y) { return (x.q - y.q) || ((x.you ? 1 : 0) - (y.you ? 1 : 0)); });
+    var cum = 0, clearing = null;
+    var rows = all.map(function (b) {
+      var start = cum; cum += b.a;
+      var inAmt = Math.max(0, Math.min(b.a, TARGET - start));
+      if (inAmt > 0 && start + b.a >= TARGET && clearing === null) clearing = b.q;
+      return Object.assign({}, b, { start: start, inAmt: inAmt, isIn: inAmt > 0 });
+    });
+    if (clearing === null) {
+      var ins = rows.filter(function (r) { return r.isIn; });
+      clearing = ins.length ? Math.max.apply(null, ins.map(function (r) { return r.q; })) : BASE;
+    }
+    return { rows: rows, total: cum, clearing: clearing, me: rows.filter(function (r) { return r.you; })[0] };
+  }
+
+  function render() {
+    var amount = parseInt(String(document.getElementById('amtd').value).replace(/\D/g, ''), 10) || 0;
+    var quota = parseFloat(document.getElementById('qd').value);
+    document.getElementById('quota-readout').textContent = pct(quota);
+
+    var sim = simulate(amount, quota);
+    var me = sim.me;
+    var xMax = Math.max(sim.total, TARGET) * 1.03;
+
+    var status = 'min', statusTitle = 'Mindestbetrag 100 €', statusText = 'Geben Sie mindestens 100 € ein.';
+    if (me && me.isIn && me.inAmt === me.a) { status = 'in'; statusTitle = 'Im Zielbereich'; statusText = 'Ihr Angebot würde heute voll berücksichtigt.'; }
+    else if (me && me.isIn) { status = 'part'; statusTitle = 'Teilweise im Zielbereich'; statusText = eur(me.inAmt) + ' würden heute berücksichtigt.'; }
+    else if (me) { status = 'out'; statusTitle = 'Heute verdrängt'; statusText = 'Unter ' + pct(sim.clearing) + ' bieten, um dabei zu sein.'; }
+
+    var STYLES = {
+      in: { bg: '#EEF6DF', fg: '#3F6300' },
+      part: { bg: '#FFF4DE', fg: '#7A4A00' },
+      out: { bg: '#FFF4DE', fg: '#7A4A00' },
+      min: { bg: '#F1F5F9', fg: '#475569' }
+    };
+    var s = STYLES[status];
+    var box = document.getElementById('status-box');
+    box.style.background = s.bg; box.style.color = s.fg;
+    document.getElementById('status-text').innerHTML = '<strong>' + statusTitle + '.</strong> ' + statusText;
+    var icon = document.getElementById('status-icon');
+    icon.setAttribute('stroke', s.fg);
+    icon.innerHTML = (status === 'in' || status === 'part')
+      ? '<path d="M4.5 12.5l4.5 4.5L19.5 7"></path>'
+      : '<circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v5.5M12 7.6v.1"></path>';
+
+    var counted = me ? me.inAmt : 0;
+    var full = counted / TARGET * sim.clearing / 100 * CLAIM;
+    var amt = Math.max(amount, 1);
+    document.getElementById('pay-full').textContent = eur(full);
+    document.getElementById('pay-mult').textContent = mult(full / amt);
+    document.getElementById('pay-settle').textContent = eur(full * SETTLE);
+
+    var rank = me ? sim.rows.indexOf(me) + 1 : 0;
+    document.getElementById('qb-rank').textContent = me ? ('Rang ' + rank + ' von ' + sim.rows.length + ' nach Quote') : 'Noch kein Angebot';
+    document.getElementById('qb-status-title').textContent = statusTitle;
+    document.getElementById('qb-total-line').textContent = eur(sim.total) + ' angeboten · ' + Math.round(sim.total / TARGET * 100) + ' % des Ziels';
+
+    // chart
+    var chart = document.getElementById('qb-chart');
+    chart.innerHTML = sim.rows.map(function (r) {
+      var color = r.you ? (r.isIn ? '#6DA800' : '#D98A00') : (r.isIn ? '#005781' : '#B8C6D3');
+      var left = (r.start / xMax * 100), width = (r.a / xMax * 100), height = (r.q / CAP * 100);
+      var ring = r.you ? '; box-shadow: 0 0 0 2px #1E293B inset' : '';
+      return '<span aria-hidden="true" style="position:absolute;bottom:0;box-sizing:border-box;border-right:2px solid #fff;border-radius:4px 4px 0 0;left:' + left + '%;width:' + width + '%;height:' + height + '%;background:' + color + ring + '"></span>';
+    }).join('') +
+      '<span aria-hidden="true" style="position:absolute;top:-8px;bottom:0;left:' + (TARGET / xMax * 100) + '%;border-left:2px dashed #1E293B"><span style="position:absolute;top:-20px;left:6px;font-size:12px;font-weight:700;white-space:nowrap">Ziel 500.000 €</span></span>' +
+      '<span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:' + (sim.clearing / CAP * 100) + '%;border-top:2px dashed #005781"><span style="position:absolute;top:-21px;left:6px;padding:1px 8px;border-radius:999px;background:#005781;color:#fff;font-size:12px;font-weight:700;white-space:nowrap">Quote für alle ' + pct(sim.clearing) + '</span></span>';
+    chart.setAttribute('aria-label', 'Angebote nach Quote sortiert. Der Zielbetrag wird bei ' + pct(sim.clearing) + ' erreicht.');
+
+    // table
+    document.getElementById('qb-table-body').innerHTML = sim.rows.map(function (r) {
+      var state = r.you ? (r.isIn ? 'Ihr Angebot · IN' : 'Ihr Angebot · OUT') : (r.isIn ? 'IN' : 'OUT');
+      var rowBg = r.you ? 'background:#F4F9EC;font-weight:600;' : '';
+      var stateColor = r.isIn ? '#005781' : '#64748B';
+      return '<tr style="' + rowBg + '">' +
+        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + pct(r.q) + '</td>' +
+        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + eur(r.a) + '</td>' +
+        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + r.d + '</td>' +
+        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0;font-weight:700;color:' + stateColor + '">' + state + '</td>' +
+        '</tr>';
+    }).join('');
+
+    // review modal mirrors current draft
+    document.getElementById('rv-amount').textContent = eur(amount);
+    document.getElementById('rv-quota').textContent = pct(quota);
+    document.getElementById('rv-status').textContent = statusTitle;
+    document.getElementById('rv-payfull').textContent = eur(full);
+    document.getElementById('sent-text').textContent = eur(amount) + ' zu einer Wunsch-Quote von ' + pct(quota) + '. Sie erhalten eine Bestätigung per E-Mail und sehen im Sponsor-Portal bis zum 30.10.2026, ob Ihr Angebot im Zielbereich liegt.';
+
+    var openReview = document.getElementById('open-review');
+    openReview.disabled = status === 'min';
+    openReview.style.opacity = status === 'min' ? '.5' : '1';
+  }
+
+  document.getElementById('amtd').addEventListener('input', render);
+  document.getElementById('qd').addEventListener('input', render);
+  document.querySelectorAll('[data-amount]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.getElementById('amtd').value = Number(btn.getAttribute('data-amount')).toLocaleString('de-DE');
+      document.querySelectorAll('[data-amount]').forEach(function (b) {
+        var active = b === btn;
+        b.setAttribute('aria-pressed', String(active));
+        b.style.border = active ? '1.5px solid #005781' : '1.5px solid #D5E1EA';
+        b.style.background = active ? '#EEF4F8' : '#fff';
+        b.style.color = active ? '#005781' : '#1E293B';
+      });
+      render();
+    });
+  });
+
+  // facts disclosure
+  var factsToggle = document.getElementById('facts-toggle');
+  factsToggle.addEventListener('click', function () {
+    var open = factsToggle.getAttribute('aria-expanded') === 'true';
+    factsToggle.setAttribute('aria-expanded', String(!open));
+    document.getElementById('facts-body').hidden = open;
+    document.getElementById('facts-label').textContent = open ? 'Ganzen Sachverhalt lesen' : 'Weniger anzeigen';
+    document.getElementById('facts-chevron').style.transform = open ? '' : 'rotate(180deg)';
+  });
+
+  // table disclosure
+  var tableToggle = document.getElementById('table-toggle');
+  tableToggle.addEventListener('click', function () {
+    var open = tableToggle.getAttribute('aria-expanded') === 'true';
+    tableToggle.setAttribute('aria-expanded', String(!open));
+    document.getElementById('qb-table-wrap').hidden = open;
+    document.getElementById('table-label').textContent = open ? 'Alle Angebote als Tabelle' : 'Tabelle ausblenden';
+  });
+
+  // watch toggle
+  var watchToggle = document.getElementById('watch-toggle');
+  var watching = false;
+  watchToggle.addEventListener('click', function () {
+    watching = !watching;
+    watchToggle.setAttribute('aria-pressed', String(watching));
+    document.getElementById('watch-label').textContent = watching ? 'Sie beobachten diesen Fall' : 'Fall beobachten';
+    var icon = document.getElementById('watch-icon');
+    watchToggle.style.color = watching ? '#4B7500' : '#005781';
+    icon.setAttribute('stroke', watching ? '#4B7500' : 'currentColor');
+    icon.innerHTML = watching
+      ? '<path d="M4.5 12.5l4.5 4.5L19.5 7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>'
+      : '<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z" stroke-width="2" stroke-linejoin="round"></path>';
+  });
+
+  // FAQ accordion (hardcoded sample Q&A)
+  var QA = [
+    { q: 'Wie schätzen Sie die Zahlungsfähigkeit von EY bei einer Niederlage ein?', a: 'EY Deutschland verfügt über erhebliche Berufshaftpflicht-Deckungen sowie Rückversicherungen über das weltweite EY-Netzwerk. Zudem bestehen substanzielle Eigenmittel. Wir schätzen das Vollstreckungsrisiko im Erfolgsfall als gering ein.', who: 'Dr. Wolfgang Schirp', ini: 'WS', d: '22.08.2026' },
+    { q: 'Wie lange dauert das Verfahren realistisch?', a: 'Für den Musterentscheid vor dem BayObLG rechnen wir mit 12 bis 18 Monaten. Danach ist eine Überprüfung durch den BGH wahrscheinlich, die weitere rund 12 Monate dauern dürfte. Insgesamt sind 2,5 bis 3 Jahre plausibel.', who: 'Marc Liebscher, LL.M.', ini: 'ML', d: '25.08.2026' },
+    { q: 'Was gilt für die Sponsoren bei einem Vergleich?', a: 'Wird ein gerichtlicher oder außergerichtlicher Vergleich geschlossen, gilt die im Quotenbalancing festgestellte AEQUIFIN-Quote entsprechend für den Vergleichsbetrag.', who: 'Dr. Wolfgang Schirp', ini: 'WS', d: '28.08.2026' }
+  ];
+  var faqList = document.getElementById('faq-list');
+  var openQ = 0; // first question open by default, matching the design's initial state
+  function renderFaq() {
+    faqList.innerHTML = QA.map(function (x, i) {
+      var open = i === openQ;
+      return '<li style="border-top:1px solid #E2E8F0">' +
+        '<h3 style="margin:0"><button type="button" class="faq-btn" data-i="' + i + '" aria-expanded="' + open + '" style="width:100%;min-height:60px;padding:16px 0;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:17px;font-weight:600;line-height:1.4;color:#1E293B">' +
+        x.q + '<span aria-hidden="true" style="width:32px;height:32px;flex-shrink:0;border-radius:50%;border:1.5px solid #D5E1EA;display:flex;align-items:center;justify-content:center;font-size:18px;color:#005781">' + (open ? '−' : '+') + '</span></button></h3>' +
+        (open ? '<div style="padding:0 48px 20px 0"><p style="margin:0;font-size:15.5px;line-height:1.65;color:#475569">' + x.a + '</p>' +
+          '<p style="margin:12px 0 0;display:flex;align-items:center;gap:10px;font-size:13.5px;color:#64748B"><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:#005781;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">' + x.ini + '</span>' + x.who + ' · ' + x.d + '</p></div>' : '') +
+        '</li>';
+    }).join('');
+    faqList.querySelectorAll('.faq-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = Number(btn.getAttribute('data-i'));
+        openQ = openQ === i ? -1 : i;
+        renderFaq();
+      });
+    });
+  }
+  renderFaq();
+
+  // review / success modals
+  var reviewModal = document.getElementById('review-modal');
+  var sentModal = document.getElementById('sent-modal');
+  var c1 = document.getElementById('c1'), c2 = document.getElementById('c2'), send = document.getElementById('send-offer');
+  function updateSend() {
+    var ok = c1.checked && c2.checked;
+    send.disabled = !ok;
+    send.style.background = ok ? '#005781' : '#9FB4C4';
+  }
+  c1.addEventListener('change', updateSend);
+  c2.addEventListener('change', updateSend);
+  document.getElementById('open-review').addEventListener('click', function () {
+    if (this.disabled) return;
+    reviewModal.hidden = false;
+  });
+  document.getElementById('close-review').addEventListener('click', function () { reviewModal.hidden = true; });
+  document.getElementById('change-offer').addEventListener('click', function () { reviewModal.hidden = true; });
+  document.getElementById('send-offer').addEventListener('click', function () {
+    if (this.disabled) return;
+    reviewModal.hidden = true;
+    sentModal.hidden = false;
+  });
+  document.getElementById('close-sent').addEventListener('click', function () {
+    sentModal.hidden = true;
+    c1.checked = false; c2.checked = false; updateSend();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
