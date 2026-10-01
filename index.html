@@ -40,8 +40,11 @@
     font-family: Roboto, sans-serif; font-weight: 300; font-size: 17px; color: #323232;
   }
   .site-header a { text-decoration: none; color: #323232; }
-  .site-header nav { display: flex; align-items: center; height: 100%; }
-  .site-header nav a { display: flex; align-items: center; height: 100%; padding: 0 16px; margin: 0 2px; white-space: nowrap; }
+  .site-header > div:first-child { min-width: 0; }
+  /* overflow-x:auto + min-width:0 here, unconditionally, so the nav itself scrolls
+     whenever logo + links + buttons don't fit — no need to guess a breakpoint for it. */
+  .site-header nav { display: flex; align-items: center; height: 100%; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .site-header nav a { display: flex; align-items: center; height: 100%; padding: 0 16px; margin: 0 2px; white-space: nowrap; flex-shrink: 0; }
   .site-header nav a:hover { background-color: #efefef; }
   .hdr-btn {
     display: inline-flex; align-items: center; justify-content: center;
@@ -59,6 +62,50 @@
   @media (max-width: 1100px) {
     .layout-grid { grid-template-columns: minmax(0, 1fr) !important; }
     .offer-aside { position: static !important; margin-top: 0 !important; }
+  }
+
+  /* Tablet: collapse the content grids that assumed desktop width (stat strip, pro/con
+     columns, party cards, steps, 6-up timeline, documents) down to something that fits. */
+  @media (max-width: 860px) {
+    .layout-grid { padding: 0 20px !important; gap: 40px !important; }
+    .hero-inner { padding: 24px 20px 32px !important; }
+    .hero-title { font-size: 30px !important; }
+    .hero-facts { gap: 24px !important; }
+    .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .dual-col { grid-template-columns: minmax(0, 1fr) !important; gap: 28px !important; }
+    .parties-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .parties-grid > div[aria-hidden] { flex-direction: row !important; height: 40px !important; margin: 4px 0 !important; }
+    .parties-grid > div[aria-hidden] > span:first-child,
+    .parties-grid > div[aria-hidden] > span:last-child { display: none !important; }
+    .steps-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .timeline-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 24px !important; }
+    .timeline-connector { display: none !important; }
+    .docs-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .faq-answer { padding: 0 0 20px 0 !important; }
+
+    .site-header { padding: 0 20px !important; gap: 8px !important; }
+    .site-header > div:first-child { gap: 16px !important; }
+    .site-header nav a { padding: 0 10px !important; }
+  }
+
+  /* Phone: hero and buttons shrink further, everything still 1-up. Header height stays
+     fixed so the sticky section-tabs offset below it stays correct. */
+  @media (max-width: 600px) {
+    .site-header { padding: 0 14px !important; }
+    .site-header nav a { font-size: 15px !important; }
+    .hdr-btn { padding: 8px 14px !important; font-size: 13px !important; }
+    .hero-section { height: auto !important; min-height: 440px; }
+    .hero-title { font-size: 24px !important; }
+    .stat-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    .timeline-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  }
+
+  /* Below ~480px the nav links don't scroll cleanly — they reduce to a single sliver of a
+     clipped word, which reads as broken rather than scrollable. A real build would swap this
+     for a hamburger menu (the platform's actual header does); for a static discussion sample,
+     dropping the links and keeping logo + CTAs is the honest simplification. */
+  @media (max-width: 480px) {
+    .site-header nav { display: none; }
   }
 </style>
 </head>
@@ -87,20 +134,20 @@
 
 
 
-<section aria-labelledby="case-title" style="position: relative; height: 520px; flex-shrink: 0; overflow: hidden">
+<section class="hero-section" aria-labelledby="case-title" style="position: relative; height: 520px; flex-shrink: 0; overflow: hidden">
   <img src="assets/case-hero.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%">
   <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,22,34,.95) 0%, rgba(0,36,56,.86) 50%, rgba(0,40,62,.45) 100%)"></div>
-  <div style="position: relative; height: 100%; box-sizing: border-box; max-width: 1340px; margin: 0 auto; padding: 30px 50px 44px; display: flex; flex-direction: column">
+  <div class="hero-inner" style="position: relative; height: 100%; box-sizing: border-box; max-width: 1340px; margin: 0 auto; padding: 30px 50px 44px; display: flex; flex-direction: column">
     <p style="margin: 0; font-size: 13px; color: #CFE6F2"><a href="#" style="color: #CFE6F2; text-decoration: none">Aktuelle Fälle</a> / Kapitalmarktrecht / Fall #23</p>
     <div style="margin-top: auto; max-width: 800px">
       <div style="display: flex; gap: 10px; flex-wrap: wrap">
         <span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.95); font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #4B7500"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #6DA800; box-shadow: 0 0 0 4px rgba(109,168,0,.18); flex-shrink: 0"></span>Live · noch 14 Tage</span>
         <span style="display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); font-size: 12.5px; font-weight: 600; color: #fff">Wirtschaftsrecht · Kapitalmarktrecht</span>
       </div>
-      <h1 id="case-title" style="margin: 20px 0 0; font-size: 44px; line-height: 1.14; font-weight: 300; letter-spacing: -.02em; color: #fff">Wirecard-Anleger gegen EY: <strong style="font-weight: 700">Haftung der Abschlussprüfer</strong></h1>
+      <h1 id="case-title" class="hero-title" style="margin: 20px 0 0; font-size: 44px; line-height: 1.14; font-weight: 300; letter-spacing: -.02em; color: #fff">Wirecard-Anleger gegen EY: <strong style="font-weight: 700">Haftung der Abschlussprüfer</strong></h1>
       <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.5; color: #CFE6F2">Musterfeststellungsklage gegen die Ernst &amp; Young GmbH Wirtschaftsprüfungsgesellschaft (Wirecard AG)</p>
     </div>
-    <dl style="margin: 32px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 48px; max-width: 800px; flex-wrap: wrap">
+    <dl class="hero-facts" style="margin: 32px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.2); display: flex; gap: 48px; max-width: 800px; flex-wrap: wrap">
       <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Streitwert</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">75 Mio. €</dd></div>
       <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Gericht</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">BayObLG München</dd></div>
       <div style="display: flex; flex-direction: column-reverse; gap: 4px"><dt style="font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #CFE6F2">Aktenzeichen</dt><dd style="margin: 0; font-size: 18px; font-weight: 400; color: #fff">KapMuG 101 Kap 1/22</dd></div>
@@ -137,13 +184,13 @@
       <svg id="facts-chevron" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; transition: transform .15s ease"><path d="M6 9l6 6 6-6"></path></svg>
     </button>
   </div>
-  <dl style="margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 22px 0; margin-left: -24px; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0">
+  <dl class="stat-grid" style="margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 22px 0; margin-left: -24px; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0">
     <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Streitwert</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">75 Mio. €</dd></div>
     <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Zielbetrag</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">500.000 €</dd></div>
     <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Höchstquote</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">35 %</dd></div>
     <div style="display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 24px; border-left: 1px solid #E2E8F0"><dt style="font-size: 13px; color: #64748B">Erwartete Dauer</dt><dd style="margin: 0; font-size: 26px; font-weight: 300; color: #005781">2,5–3 J.</dd></div>
   </dl>
-  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+  <div class="dual-col" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
     <div style="padding-top: 18px; border-top: 3px solid #6DA800"><h3 style="margin: 0 0 14px; font-size: 17px; font-weight: 600">Was für den Fall spricht</h3><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
       <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B7500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg><span><strong>BGH-Beschluss vom 07.03.2023:</strong> Eine Haftung der Prüfer nach § 826 BGB kommt in Betracht.</span></li>
       <li style="display: flex; gap: 12px; font-size: 15.5px; line-height: 1.55"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4B7500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg><span><strong>Musterverfahren:</strong> Die Feststellungen gelten für über 15.000 angemeldete Anleger.</span></li>
@@ -159,7 +206,7 @@
 
 <section id="parteien" aria-labelledby="h-pa" style="display: flex; flex-direction: column; gap: 24px">
   <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Parteien</p><h2 id="h-pa" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Wer gegen <strong style="font-weight: 700; color: #005781">wen klagt.</strong></h2></div>
-  <div style="display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: stretch">
+  <div class="parties-grid" style="display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: stretch">
     <div style="padding: 24px; border-radius: 18px; background: #005781; color: #fff">
       <p style="margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #CFE6F2">Klägerseite · Sie unterstützen</p>
       <p style="margin: 8px 0 0; font-size: 19px; line-height: 1.35; font-weight: 500">Interessengemeinschaft geschädigter Kapitalanleger (Wirecard AG) e.V.</p>
@@ -186,7 +233,7 @@
 
 <section id="quotenbalancing" aria-labelledby="h-qb" style="display: flex; flex-direction: column; gap: 24px">
   <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Quotenbalancing</p><h2 id="h-qb" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">So entsteht <strong style="font-weight: 700; color: #005781">Ihre Quote.</strong></h2><p style="margin: 10px 0 0; font-size: 16.5px; line-height: 1.6; color: #475569; max-width: 640px">Sponsoren bieten mit ihrer Wunsch-Quote. Die niedrigsten Angebote erhalten den Zuschlag. Weil am Ende alle dieselbe Quote bekommen, erhalten Sie mindestens Ihre Wunsch-Quote.</p></div>
-  <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+  <ol class="steps-grid" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
     <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">1</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Sie nennen Betrag und Wunsch-Quote</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">ab 100 €, höchstens 35 %</p></div></li>
     <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">2</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Die niedrigsten Quoten erhalten den Zuschlag</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">bis 500.000 € erreicht sind</p></div></li>
     <li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #EEF4F8; color: #005781; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">3</span><div><p style="margin: 3px 0 0; font-size: 15px; font-weight: 600; line-height: 1.35">Alle erhalten dieselbe Quote</p><p style="margin: 3px 0 0; font-size: 14px; color: #64748B">die des letzten benötigten Euro</p></div></li>
@@ -212,7 +259,8 @@
       <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0"><path d="M6 9l6 6 6-6"></path></svg>
     </button>
     <div id="qb-table-wrap" hidden style="border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #E2E8F0">
-      <table aria-label="Alle Angebote">
+      <div style="overflow-x: auto">
+      <table aria-label="Alle Angebote" style="min-width: 480px">
         <thead>
           <tr style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #64748B">
             <th scope="col" style="text-align: left; padding: 10px 14px">Quote</th>
@@ -223,18 +271,19 @@
         </thead>
         <tbody id="qb-table-body" style="font-size: 14px"></tbody>
       </table>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="ablauf" aria-labelledby="h-pl" style="display: flex; flex-direction: column; gap: 28px">
   <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Ablauf &amp; Kosten</p><h2 id="h-pl" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Zeitplan und <strong style="font-weight: 700; color: #005781">Mittelverwendung.</strong></h2></div>
-  <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
-    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Fragen-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">01.–15.08.2026</p></div></li>
-    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Antwort-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">16.–31.08.2026</p></div></li>
-    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #6DA800; box-shadow: 0 0 0 5px rgba(109,168,0,.18); display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #6DA800"></span></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #005781">Quotenbalancing</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">bis 30.10.2026</p><span style="display: inline-flex; margin-top: 6px; padding: 2px 9px; border-radius: 999px; background: #EEF6DF; color: #3F6300; font-size: 12px; font-weight: 700">Noch 14 Tage</span></div></li>
-    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Musterverfahren BayObLG</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12–18 Monate</p></div></li>
-    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Revision BGH</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12 Monate</p></div></li>
+  <ol class="timeline-grid" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" class="timeline-connector" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Fragen-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">01.–15.08.2026</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" class="timeline-connector" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: #005781"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #005781; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Antwort-Phase</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">16.–31.08.2026</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" class="timeline-connector" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #6DA800; box-shadow: 0 0 0 5px rgba(109,168,0,.18); display: flex; align-items: center; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 50%; background: #6DA800"></span></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #005781">Quotenbalancing</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">bis 30.10.2026</p><span style="display: inline-flex; margin-top: 6px; padding: 2px 9px; border-radius: 999px; background: #EEF6DF; color: #3F6300; font-size: 12px; font-weight: 700">Noch 14 Tage</span></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" class="timeline-connector" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Musterverfahren BayObLG</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12–18 Monate</p></div></li>
+    <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" class="timeline-connector" style="position: absolute; left: 34px; right: 6px; top: 13px; height: 2px; background: repeating-linear-gradient(90deg, #B8C6D3 0 6px, transparent 6px 12px)"></span><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Revision BGH</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">ca. 12 Monate</p></div></li>
     <li style="position: relative; display: flex; flex-direction: column; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; flex-shrink: 0; box-sizing: border-box; border-radius: 50%; background: #fff; border: 2px solid #B8C6D3"></span><div><p style="margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.3; color: #1E293B">Auszahlung</p><p style="margin: 3px 0 0; font-size: 13px; color: #64748B">nach Urteil oder Vergleich</p></div></li>
   </ol>
   <p style="margin: -8px 0 0; font-size: 14.5px; color: #475569">Erwartete Gesamtdauer laut Kanzlei: <strong style="color: #1E293B">2,5 bis 3 Jahre</strong></p>
@@ -251,7 +300,7 @@
 
 <section id="dokumente" aria-labelledby="h-do" style="display: flex; flex-direction: column; gap: 24px">
   <div><p style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #005781"><span aria-hidden="true" style="width: 22px; height: 2px; background: #005781"></span>Dokumente &amp; Gutachten</p><h2 id="h-do" style="margin: 12px 0 0; font-size: 32px; line-height: 1.18; font-weight: 300; letter-spacing: -.01em">Selbst <strong style="font-weight: 700; color: #005781">prüfen.</strong></h2></div>
-  <div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: start">
+  <div class="docs-grid" style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: start">
     <div>
       <p style="margin: 0 0 10px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #475569"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"></path></svg>Datenraum · verschlüsselt, Zwei-Faktor-Anmeldung</p>
       <ul style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid #E2E8F0">
@@ -583,7 +632,7 @@
       return '<li style="border-top:1px solid #E2E8F0">' +
         '<h3 style="margin:0"><button type="button" class="faq-btn" data-i="' + i + '" aria-expanded="' + open + '" style="width:100%;min-height:60px;padding:16px 0;border:0;background:none;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;font-family:inherit;font-size:17px;font-weight:600;line-height:1.4;color:#1E293B">' +
         x.q + '<span aria-hidden="true" style="width:32px;height:32px;flex-shrink:0;border-radius:50%;border:1.5px solid #D5E1EA;display:flex;align-items:center;justify-content:center;font-size:18px;color:#005781">' + (open ? '−' : '+') + '</span></button></h3>' +
-        (open ? '<div style="padding:0 48px 20px 0"><p style="margin:0;font-size:15.5px;line-height:1.65;color:#475569">' + x.a + '</p>' +
+        (open ? '<div class="faq-answer" style="padding:0 48px 20px 0"><p style="margin:0;font-size:15.5px;line-height:1.65;color:#475569">' + x.a + '</p>' +
           '<p style="margin:12px 0 0;display:flex;align-items:center;gap:10px;font-size:13.5px;color:#64748B"><span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:#005781;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">' + x.ini + '</span>' + x.who + ' · ' + x.d + '</p></div>' : '') +
         '</li>';
     }).join('');
