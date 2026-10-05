@@ -244,7 +244,8 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
       <div><p id="qb-total-line" style="margin: 0; font-size: 13px; color: #64748B">655.000 € angeboten · 131 % des Ziels</p><p style="margin: 4px 0 0; font-size: 16px; font-weight: 600">Ihr Angebot: <span id="qb-rank" style="color: #005781">Rang 5 von 9 nach Quote</span> · <span id="qb-status-title">Im Zielbereich</span></p></div>
       <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #475569">
-        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #005781"></span>Zuschlag</li>
+        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #008DCD"></span>Bestens-Sponsoring</li>
+        <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #005781"></span>Zuschlag (Limit)</li>
         <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #B8C6D3"></span>Verdrängt</li>
         <li style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: #6DA800; box-shadow: 0 0 0 2px #1E293B inset"></span>Ihr Angebot</li>
       </ul>
@@ -348,12 +349,17 @@
     <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: #1E293B"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Noch 14 T 08 Std</span>
   </div>
   <div>
-    <p style="margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 10px"><span style="font-size: 32px; line-height: 1; font-weight: 300; letter-spacing: -.02em; color: #005781">650.000 €</span><span style="font-size: 14px; color: #475569">angeboten · Ziel 500.000 €</span></p>
-    <div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-valuetext="130 % des Zielbetrags angeboten" style="margin-top: 12px; display: flex; gap: 2px; height: 6px; border-radius: 999px; background: #D5E1EA; overflow: hidden"><span style="width: 77%; background: #005781"></span><span style="flex-grow: 1; background: #66D0FF"></span></div>
-    <p style="margin: 8px 0 0; display: flex; justify-content: space-between; font-size: 13px; color: #475569"><span><strong style="color: #1E293B">130 %</strong> · überzeichnet</span><span>8 Angebote</span></p>
+    <p style="margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 10px"><span id="total-counter" data-target="680000" style="font-size: 32px; line-height: 1; font-weight: 300; letter-spacing: -.02em; color: #005781">0 €</span><span style="font-size: 14px; color: #475569">angeboten · Ziel 500.000 €</span></p>
+    <div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-valuetext="136 % des Zielbetrags angeboten" style="margin-top: 12px; display: flex; gap: 2px; height: 6px; border-radius: 999px; background: #D5E1EA; overflow: hidden"><span style="width: 74%; background: #005781"></span><span style="flex-grow: 1; background: #66D0FF"></span></div>
+    <p style="margin: 8px 0 0; display: flex; justify-content: space-between; font-size: 13px; color: #475569"><span><strong style="color: #1E293B">136 %</strong> · überzeichnet</span><span>9 Angebote</span></p>
   </div>
   <div style="height: 1px; background: #E2E8F0"></div>
   <h2 id="rail-t" style="margin: 0; font-size: 18px; font-weight: 600">Ihr Angebot</h2>
+  <div role="group" aria-label="Sponsoring-Art" style="display: flex; gap: 4px; padding: 3px; border-radius: 12px; background: #F1F5F9">
+    <button type="button" id="mode-bestens" data-mode="bestens" aria-pressed="false" style="flex: 1; min-height: 38px; border: 0; border-radius: 9px; font-family: inherit; font-size: 13.5px; font-weight: 600; background: transparent; color: #475569">Bestens-Sponsoring</button>
+    <button type="button" id="mode-limit" data-mode="limit" aria-pressed="true" style="flex: 1; min-height: 38px; border: 0; border-radius: 9px; font-family: inherit; font-size: 13.5px; font-weight: 600; background: #fff; color: #005781; box-shadow: 0 1px 2px rgba(0,0,0,.08)">Limit-Sponsoring</button>
+  </div>
+  <p id="mode-explainer" style="margin: -8px 0 0; font-size: 12.5px; line-height: 1.5; color: #64748B">Limit-Sponsoring: Sie legen eine Mindestquote fest und werden nur berücksichtigt, wenn diese erreicht wird.</p>
   <div style="display: flex; flex-direction: column; gap: 16px">
     <div style="display: flex; flex-direction: column; gap: 8px">
       <label for="amtd" style="font-size: 13.5px; font-weight: 700">Betrag</label>
@@ -367,10 +373,13 @@
         <button type="button" data-amount="25000" style="height: 34px; padding: 0 12px; border-radius: 999px; font-family: inherit; font-size: 13.5px; font-weight: 600; border: 1.5px solid #D5E1EA; background: #fff; color: #1E293B">25.000 €</button>
       </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 6px">
-      <div style="display: flex; justify-content: space-between; align-items: baseline"><label for="qd" style="font-size: 13.5px; font-weight: 700">Wunsch-Quote <span style="font-weight: 400; color: #64748B">max. 35 %</span></label><span id="quota-readout" style="font-size: 22px; font-weight: 400; color: #005781">13,00 %</span></div>
+    <div id="limit-fields" style="display: flex; flex-direction: column; gap: 6px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><label for="qd" style="font-size: 13.5px; font-weight: 700">Wunsch-Quote (Mindestquote) <span style="font-weight: 400; color: #64748B">max. 35 %</span></label><span id="quota-readout" style="font-size: 22px; font-weight: 400; color: #005781">13,00 %</span></div>
       <input id="qd" type="range" min="1" max="35" step="0.5" value="13" aria-valuetext="13,00 %" style="width: 100%; height: 24px; margin: 0">
       <div aria-hidden="true" style="position: relative; height: 26px; margin: 0 8px"><span style="position: absolute; top: 0; left: 39.71%; width: 2px; height: 10px; background: #1E293B"></span><span style="position: absolute; top: 10px; left: 39.71%; transform: translateX(-50%); font-size: 11.5px; font-weight: 600; color: #1E293B; white-space: nowrap">heute 14,50 %</span></div>
+    </div>
+    <div id="bestens-fields" style="display: none; padding: 12px 14px; border-radius: 12px; background: #EEF4F8; border: 1px solid #D5E1EA; font-size: 13.5px; line-height: 1.55; color: #1E293B">
+      Keine Mindestquote. Ihr Angebot qualifiziert sich zuerst (noch vor allen Limit-Sponsorings) und Sie erhalten die am Ende ermittelte AEQUIFIN-Quote — aktuell <strong id="bestens-clearing">14,50 %</strong>.
     </div>
     <div id="status-box" role="status" style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: #EEF6DF; color: #3F6300">
       <svg id="status-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3F6300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px"><path d="M4.5 12.5l4.5 4.5L19.5 7"></path></svg>
@@ -457,16 +466,21 @@
   'use strict';
 
   // ---- Sample data (hardcoded for discussion — matches the design's own placeholder bids) ----
+  // q: 0 marks a Bestens-Sponsoring bid (no minimum quota — see BESTENS_QUOTA below).
   var BIDS = [
-    { q: 10.0, a: 50000, d: '02.09.' },
+    { q: 0.0,  a: 30000,  d: '28.08.' },
+    { q: 10.0, a: 50000,  d: '02.09.' },
     { q: 11.5, a: 100000, d: '05.09.' },
-    { q: 12.0, a: 75000, d: '11.09.' },
+    { q: 12.0, a: 75000,  d: '11.09.' },
     { q: 12.5, a: 100000, d: '14.09.' },
     { q: 13.5, a: 100000, d: '18.09.' },
-    { q: 14.5, a: 75000, d: '24.09.' },
-    { q: 18.0, a: 50000, d: '01.09.' },
+    { q: 14.5, a: 75000,  d: '24.09.' },
+    { q: 18.0, a: 50000,  d: '01.09.' },
     { q: 22.0, a: 100000, d: '01.09.' }
   ];
+  var BESTENS_QUOTA = 0;
+  var sponsorMode = 'limit';
+  function quotaLabel(q) { return q === 0 ? 'Bestens' : pct(q); }
   var TARGET = 500000, CLAIM = 75000000, CAP = 35, MIN = 100, SETTLE = 0.4, BASE = 14.5;
 
   function eur(n) { return Math.round(n).toLocaleString('de-DE') + ' €'; }
@@ -493,7 +507,7 @@
 
   function render() {
     var amount = parseInt(String(document.getElementById('amtd').value).replace(/\D/g, ''), 10) || 0;
-    var quota = parseFloat(document.getElementById('qd').value);
+    var quota = sponsorMode === 'bestens' ? BESTENS_QUOTA : parseFloat(document.getElementById('qd').value);
     document.getElementById('quota-readout').textContent = pct(quota);
 
     var sim = simulate(amount, quota);
@@ -536,8 +550,9 @@
     // chart
     var chart = document.getElementById('qb-chart');
     chart.innerHTML = sim.rows.map(function (r) {
-      var color = r.you ? (r.isIn ? '#6DA800' : '#D98A00') : (r.isIn ? '#005781' : '#B8C6D3');
-      var left = (r.start / xMax * 100), width = (r.a / xMax * 100), height = (r.q / CAP * 100);
+      var color = r.you ? (r.isIn ? '#6DA800' : '#D98A00') : (r.q === 0 ? '#008DCD' : (r.isIn ? '#005781' : '#B8C6D3'));
+      var left = (r.start / xMax * 100), width = (r.a / xMax * 100);
+      var height = r.q === 0 ? 3 : (r.q / CAP * 100); // Bestens bids sort at q=0; give them a visible sliver instead of 0% height
       var ring = r.you ? '; box-shadow: 0 0 0 2px #1E293B inset' : '';
       return '<span aria-hidden="true" style="position:absolute;bottom:0;box-sizing:border-box;border-right:2px solid #fff;border-radius:4px 4px 0 0;left:' + left + '%;width:' + width + '%;height:' + height + '%;background:' + color + ring + '"></span>';
     }).join('') +
@@ -551,24 +566,48 @@
       var rowBg = r.you ? 'background:#F4F9EC;font-weight:600;' : '';
       var stateColor = r.isIn ? '#005781' : '#64748B';
       return '<tr style="' + rowBg + '">' +
-        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + pct(r.q) + '</td>' +
+        '<td style="padding:10px 14px;border-top:1px solid #E2E8F0' + (r.q === 0 ? ';color:#008DCD;font-weight:700' : '') + '">' + quotaLabel(r.q) + '</td>' +
         '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + eur(r.a) + '</td>' +
         '<td style="padding:10px 14px;border-top:1px solid #E2E8F0">' + r.d + '</td>' +
         '<td style="padding:10px 14px;border-top:1px solid #E2E8F0;font-weight:700;color:' + stateColor + '">' + state + '</td>' +
         '</tr>';
     }).join('');
 
+    document.getElementById('bestens-clearing').textContent = pct(sim.clearing);
+
     // review modal mirrors current draft
+    var quotaText = sponsorMode === 'bestens' ? 'Bestens (keine Mindestquote)' : pct(quota);
     document.getElementById('rv-amount').textContent = eur(amount);
-    document.getElementById('rv-quota').textContent = pct(quota);
+    document.getElementById('rv-quota').textContent = quotaText;
     document.getElementById('rv-status').textContent = statusTitle;
     document.getElementById('rv-payfull').textContent = eur(full);
-    document.getElementById('sent-text').textContent = eur(amount) + ' zu einer Wunsch-Quote von ' + pct(quota) + '. Sie erhalten eine Bestätigung per E-Mail und sehen im Sponsor-Portal bis zum 30.10.2026, ob Ihr Angebot im Zielbereich liegt.';
+    document.getElementById('sent-text').textContent = eur(amount) + ' als ' + (sponsorMode === 'bestens' ? 'Bestens-Sponsoring (ohne Mindestquote)' : ('Limit-Sponsoring mit einer Wunsch-Quote von ' + pct(quota))) + '. Sie erhalten eine Bestätigung per E-Mail und sehen im Sponsor-Portal bis zum 30.10.2026, ob Ihr Angebot im Zielbereich liegt.';
 
     var openReview = document.getElementById('open-review');
     openReview.disabled = status === 'min';
     openReview.style.opacity = status === 'min' ? '.5' : '1';
   }
+
+  var MODE_EXPLAINERS = {
+    bestens: 'Bestens-Sponsoring: Sie bieten Ihren Betrag ohne Mindestquote. Sie qualifizieren sich zuerst und erhalten die am Ende ermittelte AEQUIFIN-Quote.',
+    limit: 'Limit-Sponsoring: Sie legen eine Mindestquote fest und werden nur berücksichtigt, wenn diese erreicht wird.'
+  };
+  document.querySelectorAll('[data-mode]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      sponsorMode = btn.getAttribute('data-mode');
+      document.querySelectorAll('[data-mode]').forEach(function (b) {
+        var active = b === btn;
+        b.setAttribute('aria-pressed', String(active));
+        b.style.background = active ? '#fff' : 'transparent';
+        b.style.color = active ? '#005781' : '#475569';
+        b.style.boxShadow = active ? '0 1px 2px rgba(0,0,0,.08)' : 'none';
+      });
+      document.getElementById('limit-fields').style.display = sponsorMode === 'limit' ? 'flex' : 'none';
+      document.getElementById('bestens-fields').style.display = sponsorMode === 'bestens' ? 'block' : 'none';
+      document.getElementById('mode-explainer').textContent = MODE_EXPLAINERS[sponsorMode];
+      render();
+    });
+  });
 
   document.getElementById('amtd').addEventListener('input', render);
   document.getElementById('qd').addEventListener('input', render);
@@ -676,6 +715,25 @@
   });
 
   render();
+
+  // Count up the headline total on load to draw the eye to the offer widget. Skips straight
+  // to the final value for prefers-reduced-motion, per the project's accessibility checklist.
+  (function countUpTotal() {
+    const el = document.getElementById('total-counter');
+    const target = Number(el.getAttribute('data-target'));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) { el.textContent = eur(target); return; }
+    const duration = 1400;
+    const start = performance.now();
+    function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const value = Math.round(target * easeOutExpo(t));
+      el.textContent = eur(value);
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
 })();
 </script>
 
